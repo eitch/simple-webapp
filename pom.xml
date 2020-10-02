@@ -13,6 +13,12 @@
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
+    <scm>
+        <connection>scm:git:git@github.com:eitch/simple-webapp.git</connection>
+        <developerConnection>scm:git:git@github.com:eitch/simple-webapp.git</developerConnection>
+        <url>https://github.com/eitch/simple-webapp</url>
+    </scm>
+
     <licenses>
         <license>
             <name>Apache License 2.0</name>
@@ -403,16 +409,6 @@
                     <configuration>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                         <warName>${appFinalName}-${project.version}</warName>
-                        <webResources>
-                            <resource>
-                                <directory>src/main/non-packaged-resources</directory>
-                                <targetPath>WEB-INF</targetPath>
-                                <filtering>true</filtering>
-                                <includes>
-                                    <include>**/ENV.properties</include>
-                                </includes>
-                            </resource>
-                        </webResources>
                     </configuration>
                 </plugin>
 

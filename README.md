@@ -1,7 +1,13 @@
 # simple-webapp
 A simple Java WebApp with REST
 
-The idea is to use standard JDK features and not really on any further frameworks. This webapp will run on Standard Java 11 and Tomcat 9.x, using PostgreSQL as the local database.
+The idea is to use standard JDK features and not really on any further frameworks. 
+
+This webapp will run on Standard Java 11 and Tomcat 9.x, using PostgreSQL as the local database.
+
+The webapp is built using Maven.
+
+# Prepare
 
 To get it running you will need a database `simple` as is configured in `DbPool`:
 
@@ -32,3 +38,8 @@ Further a little table with some values:
       CURRENT_TIMESTAMP
     );
 
+# Build
+
+Build using maven:
+
+    mvn clean package
