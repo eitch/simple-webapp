@@ -1,4 +1,4 @@
-package ch.eitchnet.simple.webapp;
+package ch.eitchnet.simple.webapp.app;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

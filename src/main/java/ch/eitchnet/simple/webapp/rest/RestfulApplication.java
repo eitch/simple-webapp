@@ -1,4 +1,4 @@
-package ch.eitchnet.simple.webapp;
+package ch.eitchnet.simple.webapp.rest;
 
 import javax.ws.rs.ApplicationPath;
 

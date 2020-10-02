@@ -4,6 +4,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import ch.eitchnet.simple.webapp.app.App;
+import ch.eitchnet.simple.webapp.app.DbPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +17,7 @@ public class StartupListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		DbPool.getInstance().configure();
+		App.getInstance().configure(sce.getServletContext().getRealPath("/WEB-INF"));
 		logger.info("Started");
 	}
 

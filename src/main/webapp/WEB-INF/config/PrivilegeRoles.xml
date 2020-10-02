@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Roles>
+
+    <Role name="AppUser">
+        <Privilege name="Simple" policy="DefaultPrivilege">
+            <Allow>GET</Allow>
+        </Privilege>
+    </Role>
+
+</Roles>

@@ -1,4 +1,6 @@
-package ch.eitchnet.simple.webapp;
+package ch.eitchnet.simple.webapp.rest;
+
+import static ch.eitchnet.simple.webapp.app.AppConstants.PRIVILEGE_CONTEXT;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
@@ -12,8 +14,11 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+import ch.eitchnet.simple.webapp.app.DbPool;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import li.strolch.privilege.model.PrivilegeContext;
+import li.strolch.privilege.model.SimpleRestrictable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +31,10 @@ public class TestResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response query(@Context HttpServletRequest request, @DefaultValue("") @QueryParam("query") String query,
 			@DefaultValue("0") @QueryParam("offset") int offset, @DefaultValue("20") @QueryParam("limit") int limit) {
+
+		// authorize access
+		PrivilegeContext privilegeContext = (PrivilegeContext) request.getAttribute(PRIVILEGE_CONTEXT);
+		privilegeContext.validateAction(new SimpleRestrictable("Simple", "GET"));
 
 		String sql = "select id, description, created from simple";
 
